@@ -100,8 +100,16 @@
 <footer>
     <div class="container">
         <p>&copy; 2024 Neilson Taylor</p>
+        <button id="toTopBtn" onclick="scrollToTop()">To the Top</button>
     </div>
 </footer>
-
+    
+<script>
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+</script>
+    
 </body>
 </html>
