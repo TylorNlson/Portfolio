@@ -99,3 +99,7 @@ footer {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+/* Optional: Show the dropdown menu on click */
+.dropdown .dropbtn:focus + .dropdown-content {
+    display: block;
+}
