@@ -25,8 +25,7 @@
 
 <nav>
     <div class="dropdown">
-        <a href="#home" class="dropbtn">Home</a>
-        <span class="arrow" id="arrowBtn">&#9660;</span>
+        <a href="#home" class="dropbtn" id="homeBtn">Home &#9660;</a>
         <div class="dropdown-content" id="dropdownContent">
             <a href="#about">About</a>
             <a href="#portfolio">Portfolio</a>
@@ -126,18 +125,18 @@
     
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
-        const arrowBtn = document.getElementById('arrowBtn');
+        const homeBtn = document.getElementById('homeBtn');
         const dropdownContent = document.getElementById('dropdownContent');
 
-        // Toggle dropdown on arrow button click
-        arrowBtn.addEventListener('click', (e) => {
+        // Toggle dropdown on Home button click
+        homeBtn.addEventListener('click', (e) => {
             e.preventDefault();
             dropdownContent.classList.toggle('show');
         });
 
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
-            if (!arrowBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
+            if (!homeBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
                 dropdownContent.classList.remove('show');
             }
         });
