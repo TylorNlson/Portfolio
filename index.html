@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neilson Taylor | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add styles for dropdown visibility */
+        .dropdown-content {
+            display: none;
+        }
+        .dropdown-content.show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -16,8 +25,8 @@
 
 <nav>
     <div class="dropdown">
-        <a href="#home" class="dropbtn">Home &#9660;</a>
-        <div class="dropdown-content">
+        <a href="#home" class="dropbtn" id="homeBtn">Home &#9660;</a>
+        <div class="dropdown-content" id="dropdownContent">
             <a href="#about">About</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#experience">Experience</a>
@@ -115,6 +124,31 @@
 </footer>
     
 <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const homeBtn = document.getElementById('homeBtn');
+        const dropdownContent = document.getElementById('dropdownContent');
+
+        // Toggle dropdown on Home button click
+        homeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!homeBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
+                dropdownContent.classList.remove('show');
+            }
+        });
+
+        // Close dropdown and navigate when a dropdown item is clicked
+        dropdownContent.querySelectorAll('a').forEach(item => {
+            item.addEventListener('click', () => {
+                dropdownContent.classList.remove('show');
+            });
+        });
+    });
+
     // Function to scroll to the top of the page
     function scrollToTop() {
         window.scrollTo({top: 0, behavior: 'smooth'});
